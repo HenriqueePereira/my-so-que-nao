@@ -24,16 +24,14 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     publicacao.associate = (models) => {
-        publicacao.belongsTo(models.Usuario, {
-            foreignKey: "usuarios_id",
-            as: "autor"
-        });
+        publicacao.belongsTo(models.Usuario, {foreignKey: "usuarios_id",as: "autor"});
         publicacao.belongsToMany(models.Usuario, 
             {
-                as: "curtidores", //Atribuímos um alias com o qual chamaremos o relacionamento
                 through: "curtidas", //Nome da tabela intermediária que criará o relacionamento
                 foreignKey: "publicacoes_id", //Referência a tabela de modelo que estamos associando
-                otherKey: "usuarios_id" //Referência à outra tabela que queremos associar.
+                otherKey: "usuarios_id", //Referência à outra tabela que queremos associar.
+                as: "curtidores", //Atribuímos um alias com o qual chamaremos o relacionamento
+                timestamps:false
 
             }
 
