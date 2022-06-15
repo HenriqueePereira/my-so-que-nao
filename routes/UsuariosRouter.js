@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const UsuariosController = require("../Controllers/UsuariosController")
+const UsuariosController = require('../controllers/UsuariosController');
+const UploadDeAvatar = require('../middlewares/UploadDeAvatar');
 
-router.post("/", UsuariosController.registrar);
-router.get("/", UsuariosController.buscar);
+router.post('/', UploadDeAvatar, UsuariosController.registrar);
+router.get ('/', UsuariosController.buscar);
 
 module.exports = router;
- 

@@ -18,21 +18,49 @@ const onFileChange = evento => {
    img.src = URL.createObjectURL(evento.target.files[0])
 }
 
-// 1 - Capturar o elemento input 
+// 1 - Capturar os elementos do html para o js
+let inputNome = document.querySelector("#registro > form input[type=text]");
 let inputEmail = document.querySelector("#registro > form input[type=email]");
 let inputSenha = document.querySelector("#registro > form input[type=password]");
 let inputFile = document.querySelector("#registro > form input[type=file]")
-let inputConfirmacao = document.querySelector("#registro > form input[type=password]", id="confirmacao")
+let form = document.getElementById("formularioCadastro");
+console.log(form)
 
 // 2 - Associar ao evento "perdeu o foco" uma função
 
 
 // 3 - A função vai avisar ao usuário que o campo de
 //     email foi deixado em branco
+inputNome.addEventListener("blur", verificarCampoPreenchido);
 inputEmail.addEventListener("blur", verificarCampoPreenchido);
 inputSenha.addEventListener("blur", verificarCampoPreenchido);
-inputConfirmacao.addEventListener("blur", verificarCampoPreenchido);
-inputFile.addEventListener("change", onFileChange)
+inputFile.addEventListener("change", onFileChange);
+    // Construindo um objeto
+    let corpoDaRequisicao = {
+        nome: inputNome.value,
+        email: inputEmail.value,
+        senha: inputSenha.value
+    } 
+
+form.addEventListener("submit", (evt)=>{
+    
+    // impedir o formulario de enviar
+    evt.preventDefault();
+
+// Levantando os dados do formulário
+let formData = new FormData(form);
+
+
+    // fetch 
+    fetch("http://localhost:3000/api/v1/usuarios", 
+    {
+        method: "POST",
+        body: formData,
+        //headers:{}
+    }
+    )
+
+});
 
 
 
