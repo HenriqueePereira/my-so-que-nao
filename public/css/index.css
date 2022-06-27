@@ -1,13 +1,14 @@
 @import url(geral.css);
+@import url(login.css);
 
 #registro {
+  display: none;
   width: 400px;
   margin: 200px auto;
   padding: 40px;
   background-color: var(--primary-darker);
   color: #FFF;
   position: relative;
-  
 }
 
 #registro form {
@@ -28,6 +29,7 @@
 #registro form label.foto-container{
   padding-bottom: 20px;
   border-bottom: 1px solid var(--primary);
+  cursor: pointer;
 }
 
 #registro form label.foto-container span{
@@ -37,7 +39,6 @@
   text-align: center;
   border-radius: 4px;
   font-size: 0.9rem;
-  cursor: pointer;
 }
 
 #registro form label.foto-container input{
@@ -64,7 +65,7 @@
 }
 
 #app{
-  display: none;
+  display: none; 
 }
 
 header {
@@ -166,6 +167,7 @@ main > aside.left > h2, main > section > h2{
 main > section{
   flex-grow: 1;
   background-color: var(--transparency);
+  
 }
 
 #formNovaPublicacao{

@@ -1,21 +1,15 @@
 /api/v1
-	
-	☐ /login				            [post]		Autenticar usuário. Retorna jwt [OK]
-
-	☐ /usuarios			                [post]		Adiciona usuário [OK]
+✔ Capturar o formulário de login (formLogin) @done(22-06-22 09:24)
+✔ Adicionar um listener que, ao tentar enviar o formLogin, executa uma função login @done(22-06-22 09:39)
+✔ A função login deve enviar (POST) para a rota api/v1/usuarios/login um json com email e a senha @done(22-06-22 09:57)
+☐ Definir a rota api/v1/usuarios/login
+☐ Fazer o controller login
+☐ A função login também deve tratar a resposta que o servidor enviar
     
-	☐ /usuarios/:id: 	                [patch] 	Atualizar usuário [put] [OK]
-	☐ /usuarios/:id		            	[delete] 	Remover usuário [OK]
-	☐ /usuarios/:id/foto 	            [get]		Carrega a foto do usuário do id dado [OK]
+    (Em caso de sucesso no login)
+    ☐ Salvar o token no localStorage/sessionStorage
+    ☐ Alternar para a tela da aplicação
 
-	☐ /amigos				            [get]		Listar amigos
-	☐ /amigos/:id			            [get]		Pega dados de um amigo
-	☐ /amigos/:id/publicacoes 	        [get]		Pega as publicacoes de um amigo (paginada)
-
-	☐ /publicacoes			        	[get]		Levanta somente as própias publicações (paginada) [OK]
-	☐ /publicacoes			        	[post]		Cria uma nova publicacao [OK]
-	☐ /publicacoes/:id		        	[delete]	Remover publicação
-	☐ /publicacoes/:id/curtidores 		[get]		Levanta usuarios que curtiram publicacao
-	☐ /publicacoes/:id/curtidores 		[post]		Adiciona curtida a uma publicação
-
-	☐ /feed				            	[get]		Levanta publicações dos amigos (paginada. Decrescente por data)
+    (Em caso de fracasso no login)
+    ☐ Mostrar mensagem de falha no login
+feed				            	[get]		Levanta publicações dos amigos (paginada. Decrescente por data)
